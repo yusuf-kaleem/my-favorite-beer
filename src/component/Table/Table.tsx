@@ -52,7 +52,7 @@ const App: React.FC = () => {
         setSaveList(JSON.parse(data ||'{}'))
     })    
 
-return (<Table columns={columns} dataSource={saveList} />)
+return (<Table  columns={columns} dataSource={saveList} />)
 };
 
 

@@ -62,7 +62,11 @@ width: 90px;
   align-items: center;
   display:flex; 
   flex-direction: row; 
-  background-color: #282c34
+  background-color: #282c34;
+  padding-right: 20px;
+  justify-content: center;
+  width: 100vw;
+
 
 }
 
@@ -81,7 +85,7 @@ width: 90px;
 
 .main-container
 {
- 
+  padding: 20px;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -109,4 +113,24 @@ width: 90px;
   to {
     transform: rotate(360deg);
   }
+}
+
+.ant-table-cell{
+  background-color: #393d47 !important;
+  color: aliceblue !important;
+}
+
+.ant-empty-description{
+  color: aliceblue !important;
+}
+
+.rotate{
+  transform: rotate(90deg);
+  margin-left: -147px;
+}
+
+.bold_font{
+  font-family: fantasy;
+  color: #25baa4;
+  margin-bottom: -25px;
 }
