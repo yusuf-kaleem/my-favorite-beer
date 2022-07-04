@@ -84,7 +84,7 @@ function Search(){
         
       <div style={{ display: 'flex', alignItems: 'center',marginLeft:'auto' }}>
         <Modal show={showModal} onClose={() => { setShowModal(false) }} transitionSpeed={100} containerStyle={{ borderRadius: 10, padding: 20, width: 500, height: "480px" }} >
-        <div style={{ display: 'flex' }}>
+        <div style={{ display: 'flex' ,color:"#333" }}>
           <div style={{ display: 'flex', flex: 1, justifyContent: 'center' }}>
             <img height={400} src={beer.image_url}></img>
           </div>
