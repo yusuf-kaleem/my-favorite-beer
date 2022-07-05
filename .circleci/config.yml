@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.2
+  prettier: cfra/prettier@0.1.1
 jobs:
   build-and-test:
     docker:
@@ -16,3 +17,4 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
+      - prettier/check
