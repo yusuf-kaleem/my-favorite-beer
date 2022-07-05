@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.2
-  prettier: cfra/prettier@0.1.1
   github-super-linter: circleci/github-super-linter@1.0.1
 jobs:
   build-and-test:
@@ -18,5 +17,4 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
-      - prettier/check
       - github-super-linter/lint
