@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.2
-  github-super-linter: circleci/github-super-linter@1.0.1
+  prettier: picturepipe/prettier@volatile
 jobs:
   build-and-test:
     docker:
@@ -17,4 +17,4 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
-      - github-super-linter/lint
+      - prettier/check
