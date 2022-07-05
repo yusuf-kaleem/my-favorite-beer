@@ -12,7 +12,6 @@ jobs:
       - node/install-packages
       - run:
           command: npm run test
-jobs:
   prettier-check:
     docker:
       - image: "cimg/base:stable"
