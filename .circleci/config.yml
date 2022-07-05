@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.2
-  prettier: picturepipe/prettier@volatile
+  prettier: miyajan/prettier@0.3.0
 jobs:
   build-and-test:
     docker:
@@ -17,4 +17,4 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
-      - prettier/check
+      - prettier/check-typescript
