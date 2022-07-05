@@ -1,10 +1,9 @@
 import { AutoComplete, Input, Button, Popover, InputNumber, Select } from 'antd';
 import type { SelectProps } from 'antd/es/select';
 import React, { useEffect, useState } from 'react';
-import { SettingOutlined, FilterOutlined } from '@ant-design/icons';
-
+import { FilterOutlined } from '@ant-design/icons';
 // @ts-ignore
-import Modal, { closeStyle } from 'simple-react-modal'
+import Modal from 'simple-react-modal'
 // @ts-ignore
 import { Form, Field } from 'easy-react-form'
 import axios from 'axios'
@@ -167,6 +166,7 @@ function Search() {
                   <Option value="bottom">Bottom-fermenting</Option>
                 </Select>
               </div>
+
 
             </div>
 
