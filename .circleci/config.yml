@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.2
-  prettier: miyajan/prettier@0.3.0
 jobs:
   build-and-test:
     docker:
@@ -13,8 +12,21 @@ jobs:
       - node/install-packages
       - run:
           command: npm run test
+jobs:
+  prettier-check:
+    docker:
+      - image: cimg/openjdk:17.0-node
+    steps:
+      - run:
+      name: Install NPM dependencies
+      command: |
+        npm ci
+      - run:
+          name: "Run Prettier with project configuration"
+          command: |
+            npm run prettier:check:ci          
 workflows:
   build-and-test:
     jobs:
       - build-and-test
-      - prettier/check-typescript
+      - prettier-check
