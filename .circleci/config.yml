@@ -17,13 +17,12 @@ jobs:
     docker:
       - image: "cimg/base:stable"
     steps:
-      name: Install NPM dependencies
-      command: |
-        npm ci
+      - checkout
+      - node/install:
+          node-version: "12.22"
+      - node/install-packages
       - run:
-          name: "Run Prettier with project configuration"
-          command: |
-            npm run prettier:check:ci          
+            command: npm run prettier:check:ci          
 workflows:
   build-and-test:
     jobs:
