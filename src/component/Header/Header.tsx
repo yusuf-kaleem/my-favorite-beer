@@ -4,7 +4,6 @@ function Header() {
     return (
         <div className="header" >
          
-
          {/*Title & Beer Logo */}
          <div className='flex_row bold_font'>
          <span style={{marginTop: "5px"}}> My Favorite Beer </span> 

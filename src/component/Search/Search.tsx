@@ -10,9 +10,9 @@ import { Form, Field } from 'easy-react-form'
 import axios from 'axios'
 const { Option } = Select;
 
-function Search(){
+function Search() {
 
-    const [options, setOptions] = useState<SelectProps<object>['options']>([]);
+  const [options, setOptions] = useState<SelectProps<object>['options']>([]);
   const [beer, setBeer] = useState<any>({})
   const [showModal, setShowModal] = useState(false)
   const [saveList, setSaveList] = useState<any[]>([])
@@ -31,7 +31,7 @@ function Search(){
   };
   const handleSearch = (value: string) => {
 
-     axios.get(`https://api.punkapi.com/v2/beers?beer_name=${value}${ebc_lt?'&ebc_lt='+ebc_lt+'':''}${ebc_gt?'&ebc_gt='+ebc_gt+'':''}${ibu_lt?'&ibu_lt='+ibu_lt+'':''}${ibu_gt?'&ibu_gt='+ibu_gt+'':''}${food_pair?'&food='+food_pair+'':''}`).then((data) => {
+    axios.get(`https://api.punkapi.com/v2/beers?beer_name=${value}${ebc_lt ? '&ebc_lt=' + ebc_lt + '' : ''}${ebc_gt ? '&ebc_gt=' + ebc_gt + '' : ''}${ibu_lt ? '&ibu_lt=' + ibu_lt + '' : ''}${ibu_gt ? '&ibu_gt=' + ibu_gt + '' : ''}${food_pair ? '&food=' + food_pair + '' : ''}`).then((data) => {
       let ss = data.data
 
       let aa = ss.map((_: any) => {
@@ -80,11 +80,11 @@ function Search(){
   }
 
 
-    return (
-        
-      <div style={{ display: 'flex', alignItems: 'center',marginLeft:'auto' }}>
-        <Modal show={showModal} onClose={() => { setShowModal(false) }} transitionSpeed={100} containerStyle={{ borderRadius: 10, padding: 20, width: 500, height: "480px" }} >
-        <div style={{ display: 'flex' ,color:"#333" }}>
+  return (
+
+    <div style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
+      <Modal show={showModal} onClose={() => { setShowModal(false) }} transitionSpeed={100} containerStyle={{ borderRadius: 10, padding: 20, width: 500, height: "480px" }} >
+        <div style={{ display: 'flex', color: "#333" }}>
           <div style={{ display: 'flex', flex: 1, justifyContent: 'center' }}>
             <img height={400} src={beer.image_url}></img>
           </div>
@@ -150,40 +150,40 @@ function Search(){
       <Popover
         content={
           <div>
-            <div style={{ display: 'flex', alignItems: 'flex-start',flex:1,margin:10 }}>
-              <div style={{ display: 'flex',flex:1 }}><p>fermentation type : {" "}</p></div>
-              <div  style={{ display: 'flex',flex:1,paddingLeft:20 }}>
-              <Select placeholder="select type" style={{ width: 186 }} onChange={(v) => { 
-                if(v==="top"){
-                  set_ebc_lt(25)
-                  set_ebc_gt(10)
-                }
-                else{
-                  set_ebc_lt(15)
-                  set_ebc_gt(7)
-                }
-                 }}>
-                <Option value="top">Top-fermenting</Option>
-                <Option value="bottom">Bottom-fermenting</Option>
-              </Select>
+            <div style={{ display: 'flex', alignItems: 'flex-start', flex: 1, margin: 10 }}>
+              <div style={{ display: 'flex', flex: 1 }}><p>fermentation type : {" "}</p></div>
+              <div style={{ display: 'flex', flex: 1, paddingLeft: 20 }}>
+                <Select placeholder="select type" style={{ width: 186 }} onChange={(v) => {
+                  if (v === "top") {
+                    set_ebc_lt(25)
+                    set_ebc_gt(10)
+                  }
+                  else {
+                    set_ebc_lt(15)
+                    set_ebc_gt(7)
+                  }
+                }}>
+                  <Option value="top">Top-fermenting</Option>
+                  <Option value="bottom">Bottom-fermenting</Option>
+                </Select>
               </div>
 
             </div>
 
-            <div style={{ display: 'flex',flex:1 ,margin:10}}>
-              <div  style={{ display: 'flex',flex:1 }}>
+            <div style={{ display: 'flex', flex: 1, margin: 10 }}>
+              <div style={{ display: 'flex', flex: 1 }}>
                 <p>bitterness : </p>
               </div>
-              <div  style={{ display: 'flex',flex:1,paddingLeft:20 }}>
-                <InputNumber placeholder='IBU Min' min={1} max={120} defaultValue={1} onChange={(v) => {set_ibu_gt(v) }} /> - <InputNumber placeholder='IBU Max' min={1} max={120} defaultValue={120} onChange={(v) => { set_ibu_lt(v)}} />
+              <div style={{ display: 'flex', flex: 1, paddingLeft: 20 }}>
+                <InputNumber placeholder='IBU Min' min={1} max={120} defaultValue={1} onChange={(v) => { set_ibu_gt(v) }} /> - <InputNumber placeholder='IBU Max' min={1} max={120} defaultValue={120} onChange={(v) => { set_ibu_lt(v) }} />
               </div>
             </div>
 
-            <div style={{ display: 'flex',flex:1,margin:10 }}>
-              <div  style={{ display: 'flex',flex:1 }}><p>food pairing : </p></div>
-              <div  style={{ display: 'flex',flex:1,paddingLeft:20 }}>
-                <Input onChange={(v)=>{set_food_pair(v.target.value.replace(/\s+/g, '_'))}} style={{width:'186px'}}></Input>
-                </div>
+            <div style={{ display: 'flex', flex: 1, margin: 10 }}>
+              <div style={{ display: 'flex', flex: 1 }}><p>food pairing : </p></div>
+              <div style={{ display: 'flex', flex: 1, paddingLeft: 20 }}>
+                <Input onChange={(v) => { set_food_pair(v.target.value.replace(/\s+/g, '_')) }} style={{ width: '186px' }}></Input>
+              </div>
 
             </div>
 
@@ -210,7 +210,7 @@ function Search(){
         <Input.Search size="large" placeholder="beer name" enterButton value={"sss"} />
       </AutoComplete>
     </div>
-    )
+  )
 }
 
 export default Search
