@@ -58,7 +58,7 @@ function Search() {
   };
 
   return (
-    <div style={{ display: "flex", alignItems: "center", marginLeft: "auto" }}>
+    <div className="search-container">
       <Modal
         showModal={showModal}
         beer={beer}

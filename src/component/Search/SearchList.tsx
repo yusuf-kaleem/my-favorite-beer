@@ -7,17 +7,12 @@ type Props = {
 
 export default function SearchList({ data }: any) {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-      }}
-    >
-      <div style={{ display: "flex", flexDirection: "column" }}>
+    <div className="search-list-container">
+      <div className="search-list-sub-container">
         <span>
           <b>{data.name}</b>
         </span>
-        <span style={{ fontSize: 12, opacity: 0.8 }}>
+        <span className="small-font">
           bitterness : {data.ibu} | ebc : {data.ebc} | fermentation temp :{" "}
           {data.method.fermentation.temp.value} <span>&#8451;</span>
         </span>

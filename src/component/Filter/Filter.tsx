@@ -26,18 +26,11 @@ function Filter({
       <Popover
         content={
           <div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "flex-start",
-                flex: 1,
-                margin: 10,
-              }}
-            >
-              <div style={{ display: "flex", flex: 1 }}>
+            <div className="align-start flex-one margin">
+              <div className="flex-one">
                 <p>fermentation type : </p>
               </div>
-              <div style={{ display: "flex", flex: 1, paddingLeft: 20 }}>
+              <div className="padding">
                 <Select
                   placeholder="select type"
                   style={{ width: 186 }}
@@ -57,11 +50,11 @@ function Filter({
               </div>
             </div>
 
-            <div style={{ display: "flex", flex: 1, margin: 10 }}>
-              <div style={{ display: "flex", flex: 1 }}>
+            <div className="flex-one margin">
+              <div className="flex-one">
                 <p>bitterness : </p>
               </div>
-              <div style={{ display: "flex", flex: 1, paddingLeft: 20 }}>
+              <div className="flex-one padding">
                 <InputNumber
                   placeholder="IBU Min"
                   min={1}
@@ -84,11 +77,11 @@ function Filter({
               </div>
             </div>
 
-            <div style={{ display: "flex", flex: 1, margin: 10 }}>
-              <div style={{ display: "flex", flex: 1 }}>
+            <div className="flex-one margin">
+              <div className="flex-one">
                 <p>food pairing : </p>
               </div>
-              <div style={{ display: "flex", flex: 1, paddingLeft: 20 }}>
+              <div className="flex-one padding">
                 <Input
                   onChange={(v) => {
                     set_food_pair(v.target.value.replace(/\s+/g, "_"));
@@ -107,7 +100,7 @@ function Filter({
         visible={visible}
         onVisibleChange={handleVisibleChange}
       >
-        <FilterOutlined style={{ margin: 10 }}></FilterOutlined>
+        <FilterOutlined className="margin"></FilterOutlined>
       </Popover>
     </div>
   );
