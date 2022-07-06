@@ -8,7 +8,6 @@ type Props = {};
 function CustomeModal({ showModal, beer, setShowModal }: any) {
   const [saveList, setSaveList] = useState<any[]>([]);
 
-  console.log("beeeee", beer);
   function submit(data: any) {
     let obj = { name: beer.name, img: beer.image_url, ...data };
     let list = saveList;
@@ -28,11 +27,11 @@ function CustomeModal({ showModal, beer, setShowModal }: any) {
         }}
         footer={null}
       >
-        <div style={{ display: "flex", color: "#333" }}>
-          <div style={{ display: "flex", flex: 1, justifyContent: "center" }}>
+        <div className="modal-container">
+          <div className="modal-img">
             <img height={400} src={beer.image_url}></img>
           </div>
-          <div style={{ display: "flex", flex: 1 }}>
+          <div className="flex-one">
             <Form
               onSubmit={(v: any) => {
                 submit(v);
@@ -43,9 +42,7 @@ function CustomeModal({ showModal, beer, setShowModal }: any) {
                 fontSize: "12px",
               }}
             >
-              <h2 style={{ fontSize: "20px", fontWeight: "bold" }}>
-                {beer.name}
-              </h2>
+              <h2 className="form-header">{beer.name}</h2>
               <label>drink this beer before?</label>
               <Field
                 name="drink_before"
@@ -86,19 +83,7 @@ function CustomeModal({ showModal, beer, setShowModal }: any) {
               <br></br>
               <br></br>
 
-              <button
-                style={{
-                  background: "#4893f0",
-                  color: "#fff",
-                  border: "none",
-                  fontSize: 14,
-                  padding: "3px 10px",
-                  borderRadius: 3,
-                }}
-              >
-                {" "}
-                Save{" "}
-              </button>
+              <button className="form-button"> Save </button>
             </Form>
           </div>
         </div>
