@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.2
-  prettier: miyajan/prettier@0.3.0
 jobs:
   build-and-test:
     docker:
@@ -13,8 +12,18 @@ jobs:
       - node/install-packages
       - run:
           command: npm run test
+  prettier-check:
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - checkout
+      - node/install:
+          node-version: "12.22"
+      - node/install-packages
+      - run:
+            command: npm run prettier:check:ci          
 workflows:
   build-and-test:
     jobs:
       - build-and-test
-      - prettier/check-typescript
+      - prettier-check
