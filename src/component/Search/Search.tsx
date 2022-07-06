@@ -1,13 +1,9 @@
-import {
-  AutoComplete,
-  Input,
-  Select,
-} from "antd";
+import { AutoComplete, Input, Select } from "antd";
 import type { SelectProps } from "antd/es/select";
 import React, { useEffect, useState } from "react";
-import Modal from '../Modal/Modal'
-import Filter from '../Filter/Filter'
-import SearchList from './SearchList'
+import Modal from "../Modal/Modal";
+import Filter from "../Filter/Filter";
+import SearchList from "./SearchList";
 
 import axios from "axios";
 const { Option } = Select;
@@ -24,12 +20,15 @@ function Search() {
   const [food_pair, set_food_pair] = useState("");
 
   const handleSearch = (value: string) => {
-    set_search_text(value)
+    set_search_text(value);
     axios
       .get(
-        `https://api.punkapi.com/v2/beers?beer_name=${value}${ebc_lt ? "&ebc_lt=" + ebc_lt + "" : ""
-        }${ebc_gt ? "&ebc_gt=" + ebc_gt + "" : ""}${ibu_lt ? "&ibu_lt=" + ibu_lt + "" : ""
-        }${ibu_gt ? "&ibu_gt=" + ibu_gt + "" : ""}${food_pair ? "&food=" + food_pair + "" : ""
+        `https://api.punkapi.com/v2/beers?beer_name=${value}${
+          ebc_lt ? "&ebc_lt=" + ebc_lt + "" : ""
+        }${ebc_gt ? "&ebc_gt=" + ebc_gt + "" : ""}${
+          ibu_lt ? "&ibu_lt=" + ibu_lt + "" : ""
+        }${ibu_gt ? "&ibu_gt=" + ibu_gt + "" : ""}${
+          food_pair ? "&food=" + food_pair + "" : ""
         }`
       )
       .then((data) => {
@@ -38,8 +37,7 @@ function Search() {
           const category = `${_.name}`;
           return {
             value: category,
-            label: <SearchList data={_}></SearchList>
-            ,
+            label: <SearchList data={_}></SearchList>,
           };
         });
 
@@ -47,9 +45,9 @@ function Search() {
       });
   };
 
-  useEffect(()=>{
-    handleSearch(search_text)
-  },[ebc_gt,ebc_lt,ibu_gt,ibu_lt,food_pair])
+  useEffect(() => {
+    handleSearch(search_text);
+  }, [ebc_gt, ebc_lt, ibu_gt, ibu_lt, food_pair]);
   const onSelect = (value: string) => {
     axios
       .get(`https://api.punkapi.com/v2/beers?beer_name=${value}`)
@@ -59,12 +57,21 @@ function Search() {
       });
   };
 
-
   return (
     <div style={{ display: "flex", alignItems: "center", marginLeft: "auto" }}>
-      <Modal showModal={showModal} beer={beer} setShowModal={setShowModal} ></Modal>
+      <Modal
+        showModal={showModal}
+        beer={beer}
+        setShowModal={setShowModal}
+      ></Modal>
 
-      <Filter set_ebc_lt={set_ebc_lt} set_ebc_gt={set_ebc_gt} set_ibu_gt={set_ibu_gt} set_ibu_lt={set_ibu_lt} set_food_pair={set_food_pair}></Filter>
+      <Filter
+        set_ebc_lt={set_ebc_lt}
+        set_ebc_gt={set_ebc_gt}
+        set_ibu_gt={set_ibu_gt}
+        set_ibu_lt={set_ibu_lt}
+        set_food_pair={set_food_pair}
+      ></Filter>
 
       <AutoComplete
         dropdownMatchSelectWidth={252}
@@ -73,11 +80,7 @@ function Search() {
         onSelect={onSelect}
         onSearch={handleSearch}
       >
-        <Input.Search
-          size="large"
-          placeholder="beer name"
-          enterButton
-        />
+        <Input.Search size="large" placeholder="beer name" enterButton />
       </AutoComplete>
     </div>
   );
