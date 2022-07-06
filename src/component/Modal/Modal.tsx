@@ -8,6 +8,7 @@ type Props = {};
 function CustomeModal({ showModal, beer, setShowModal }: any) {
   const [saveList, setSaveList] = useState<any[]>([]);
 
+  console.log("beeeee", beer);
   function submit(data: any) {
     let obj = { name: beer.name, img: beer.image_url, ...data };
     let list = saveList;
